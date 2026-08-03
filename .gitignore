@@ -1,0 +1,9 @@
+node_modules/
+.eve/
+.env
+.env.local
+.env.*.local
+reports/*
+!reports/.gitkeep
+.DS_Store
+*.log

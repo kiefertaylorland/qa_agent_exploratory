@@ -1,0 +1,37 @@
+{
+  "name": "qa-agent-explore",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
+  "imports": {
+    "#*": "./agent/*",
+    "#evals/*": "./evals/*"
+  },
+  "scripts": {
+    "dev": "eve dev",
+    "start": "eve start",
+    "build": "eve build",
+    "info": "eve info",
+    "demo-target": "node demo-target/server.js",
+    "typecheck": "tsc",
+    "eval": "QA_AGENT_MODEL=mock eve eval --strict --exclude-tag real-model",
+    "eval:real": "eve eval --tag real-model"
+  },
+  "dependencies": {
+    "eve": "0.29.4",
+    "ai": "^7.0.38",
+    "zod": "4.4.3",
+    "@vercel/connect": "0.4.3",
+    "playwright": "1.60.0"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2",
+    "@types/node": "24.x"
+  },
+  "overrides": {
+    "ai": "^7.0.38"
+  }
+}
