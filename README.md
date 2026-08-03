@@ -52,13 +52,18 @@ network calls to a model provider.
 2. `eve link` — links this directory to a Vercel project and writes
    `AI_GATEWAY_API_KEY` into `.env.local`.
 3. In one terminal: `pnpm demo-target` (prints the URL it bound to).
-4. In another: `pnpm dev`, then give the agent that URL and, optionally, a
-   charter.
+4. In another: `pnpm dev` — this opens eve's interactive terminal REPL.
+   Give it the demo-target URL and, optionally, a charter.
 5. Grade the run against `demo-target/README.md`'s spoiler list of seeded
    bugs.
 6. Optionally, `pnpm eval:real` runs the tagged `real-model-smoke` eval
    against a live model (needs the same credentials; excluded from the
    default `pnpm eval`).
+
+Note: `eve eval`/`eve dev` may print `[world-local] Queue message failed ...
+socket hang up` lines after a run completes — that's the local dev server's
+workflow queue tearing down, not an agent failure; check the actual eval
+results/exit code instead.
 
 ## Demo target
 
