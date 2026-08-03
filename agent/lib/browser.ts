@@ -107,5 +107,23 @@ async function closeAllBestEffort(): Promise<void> {
   await browser?.close().catch(() => {});
 }
 
-process.once("SIGINT", () => void closeAllBestEffort());
-process.once("SIGTERM", () => void closeAllBestEffort());
+// eve's dev-mode hot reload re-runs this module's top level on every
+// generation. A plain process.once() would pile up a new listener per
+// generation and never remove the last one's (its closure is stale anyway).
+// A global-symbol handoff keeps exactly one live handler across reloads.
+const CLEANUP_HANDLER_KEY = Symbol.for("qa-agent-explore.browser.cleanup-handler");
+
+function registerCleanupOnce(): void {
+  const registry = process as unknown as Record<symbol, (() => void) | undefined>;
+  const previous = registry[CLEANUP_HANDLER_KEY];
+  if (previous) {
+    process.off("SIGINT", previous);
+    process.off("SIGTERM", previous);
+  }
+  const handler = () => void closeAllBestEffort();
+  registry[CLEANUP_HANDLER_KEY] = handler;
+  process.once("SIGINT", handler);
+  process.once("SIGTERM", handler);
+}
+
+registerCleanupOnce();

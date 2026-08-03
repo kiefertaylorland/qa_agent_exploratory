@@ -65,7 +65,7 @@ ${items}
   <section>
     <h2>Add a task</h2>
     <form id="add-task-form">
-      <input id="task-title-input" name="title" placeholder="New task title" />
+      <input id="task-title-input" name="title" placeholder="New task title" aria-label="New task title" />
       <button type="submit">Add</button>
     </form>
   </section>
