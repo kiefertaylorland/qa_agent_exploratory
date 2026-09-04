@@ -5,8 +5,9 @@
     "moduleResolution": "bundler",
     "types": ["node"],
     "strict": true,
-    "esModuleInterop": true,
+    "noUncheckedIndexedAccess": true,
     "skipLibCheck": true,
+    "esModuleInterop": true,
     "noEmit": true
   },
   "include": ["agent/**/*.ts", "evals/**/*.ts"]

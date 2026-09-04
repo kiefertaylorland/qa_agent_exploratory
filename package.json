@@ -16,7 +16,7 @@
     "build": "eve build",
     "info": "eve info",
     "demo-target": "node demo-target/server.js",
-    "typecheck": "tsc",
+    "typecheck": "tsc --noEmit",
     "eval": "QA_AGENT_MODEL=mock eve eval --strict --exclude-tag real-model",
     "eval:real": "eve eval --tag real-model"
   },

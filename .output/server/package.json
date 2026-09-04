@@ -1,0 +1,11 @@
+{
+  "name": "traced-node-modules",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "fsevents": "2.3.2",
+    "playwright": "1.60.0",
+    "playwright-core": "1.60.0"
+  }
+}
