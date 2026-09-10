@@ -18,7 +18,8 @@
     "demo-target": "node demo-target/server.js",
     "typecheck": "tsc --noEmit",
     "eval": "pnpm run typecheck && QA_AGENT_MODEL=mock eve eval --strict --exclude-tag real-model",
-    "eval:real": "eve eval --tag real-model"
+    "eval:real": "eve eval --tag real-model",
+    "test": "pnpm run eval"
   },
   "dependencies": {
     "eve": "0.29.4",
