@@ -4,9 +4,9 @@
 
 nvm use            # Node >=24 (.nvmrc)
 pnpm install
-pnpm test          # typecheck + mock evals (replaces the old `pnpm eval` gate)
+pnpm test          # typecheck + mock evals (preferred; equivalent to `pnpm eval`)
 
-`pnpm test` runs `tsc --noEmit` first, then the mock-model eval suite, so both
+`pnpm test` (and `pnpm eval`) runs `tsc --noEmit` first, then the mock-model eval suite, so both
 type-safety and agent behavior are gated by one command. The mock eval spawns
 its own demo-target server per eval, drives the real agent runtime with a
 scripted `mockModel` responder, and asserts on the full
